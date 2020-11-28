@@ -1,13 +1,282 @@
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  margin:0;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.App {
+  position: fixed;
+  max-width: 1920px;
+  width: 100%;
+  max-height: 1080%;
+  height: 100%;
+  overflow: auto ;
+  background: linear-gradient(to top, #000d1d, #001b3c);
+}
+
+
+@media (max-height:800px) {
+  .App{
+    max-height: 670px;
+  }
+}
+
+.block-heading {
+  max-width: 1920px;
+  width:100%;
+  max-height: 1100px;
+  height: 100%;
+  font-style: 0;
+  background: url(images/unix_background.png) 0 0/ 1920px 1534px;
+}
+.block-about {
+  max-width: 1920px;
+  width: 100%;
+  height:auto;
+  margin: 0px;
+  justify-content: 'space-between';
+}
+.block-title {
+  max-width: 1920px;
+  width: 100%;
+  height: auto;
+  margin: 0px;
+}
+
+.title {
+  height: 50px;
+  text-align: center;
+  background-color: #fff;
+  margin: 0px;
+  font-size:40px;
+  font-weight: bold;
+}
+.button-login {
+  background: rgb(172, 172, 155);
+  font-family: 'Montserrat', sans-serif;
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: lighter;
+  position: relative;
+  display: inline;
+  margin-top: 2%;
+  left: 86%;
+  font-size: 100%;
+  padding:0.3% 0.5% 0.3% 0.5%;
+}
+.button-login:hover {
+  background-color: #fff;
+  color:#000;
+}
+.button-register {
+  background: rgb(172, 172, 155);
+  font-family: 'Montserrat', sans-serif;
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: lighter;
+  position: relative;
+  margin-top: 2%;
+  left: 87%;
+  font-size: 100%;
+  padding:0.3% 0.5% 0.3% 0.5%;
+}
+.button-register:hover {
+  background-color: #fff;
+  color:#000;
+}
+.heading {
+  font-family: 'Montserrat';
+  margin-top: 7%;
+  padding-bottom: 23%;
+}
+.heading h1 {
+  color:#fff;
+  padding-top: 10%;
+  padding-left: 95px;
+  font-size: 100pt;
+  font-family: 'Montserrat';
+  font-weight: 900;
+  display: inline;
+}
+.heading h2 {
+  color:#fff;
+  padding-left: 45px;
+  font-style:italic;
+  font-weight: 800;
+  font-size: 70pt;
+  margin-left: 7%;
+  max-width: 10%;
+  margin-top: 0;
+
+}
+.logo {
+  float: right;
+  max-width: 630px;
+  width: 100%;
+  max-height: 630px;
+  height: 100%;
+  margin-right: 7%;
+  padding-left: 20px;
+}
+.subtitle {
+  font-family: 'Montserrat', sans-serif;
+  height: 50px;
+  text-align: center;
+  background-color: transparent;
+  font-size:40px;
+  font-weight: bold;
+  color:#fff;
+  font-size: 120px;
+  margin-top: 20px;
+}
+
+.text {
+  color:#fff;
+  text-align: center;
+  width: 400px;
+  font-style: 30px;
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 20%;
+  font-size: 30px;
+  margin-bottom: 10%;
+}
+
+.title-img {
+  width: 700px;
+  height: 500px;
+  margin-left: 5%;
+  float: left;
+}
+.block-title div {
+  padding-top: 10%;
+}
+
+.subtitle-2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color:#fff;
+  font-size: 120px;
+  padding-left: 20%;
+  display: inline;
+ 
+}
+.text-2 {
+  padding-bottom: 5%;
+  color:#fff;
+  text-align: center;
+  width: 33%; 
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 10%;
+  font-size: 33px;
+}
+.text-3 {
+  color:#fff;
+  text-align: auto;
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 10%;
+  margin-right: 7%;
+  padding-top: 5%;
+  font-size: 33px;
+}
+.title-footer {
+  color:#fff;
+  border-top: 3px solid #fff;
+  border-bottom:3px solid #fff ;
+  height: 5%;
+}
+.title-footer p {
+  justify-content: 'space-between';
+  display: block;
+  clear: none;
+  font-size: 20px;
+  float: left;
+  margin: 2% 33% 2% 5%;
+}
+
+.login-form {
+  position: absolute;
+    background: rgba(226,226,226,.9);
+    border: 1px solid #b4a6a6;
+    padding: 10px;
+    z-index: 2;
+    text-align: center;
+    display: none;
+    width: 220px;
+}
+.login-form-open {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #000;
+    
+    text-align: center;
+    width: 350px;
+
+}
+.login-form-open h1 {
+	margin: 30px 0px;
+	padding: 0;
+	text-align: center;
+	color: #fff;
+	font-size: 30px;
+	text-transform: uppercase;
+}
+.input-form {
+	margin: 15px 40px;
+	text-align: center;
+}
+
+.input-form input {
+	padding: 10px;
+	width: 100%;
+	color: #fff;
+	font-size: 20px;
+	background: none;
+	outline: none;
+	border: 1px solid #fff;
+	box-sizing: border-box;
+}
+.input-form input[type="text"]:focus, .input-form input[type="password"]:focus {
+	border: 1px solid #0fc3f5;
+}
+
+.input-form input[type="submit"] {
+	margin-top: 20px;
+	color: #fff;
+	font-weight: bold;
+	text-transform: uppercase;
+	border: none;
+	background: #0fc3f5;
+	transition: .3s;
+}
+
+.input-form input[type="submit"]:hover {
+	background: #4442db;
+}
+
+.login-form-open a {
+	display: block;
+	padding: 0 0 30px;
+	text-align: center;
+	color: #fff;
+	text-decoration: none;
+	transition: .3s;
+}
+
+.login-form-open a:hover {
+	color: #0fc3f5;
+}
+
+.block-login, .block-register {
+  display: inline;
 }
