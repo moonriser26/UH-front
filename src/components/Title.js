@@ -30,9 +30,12 @@ function Title() {
                 method: 'GET',
                 mode: 'no-cors',
                 headers: headers,
-            }).then(response => response.json())
-            .then(res => {
+            }).then(response => {
+                response.json()
+            }).then(res => {
                 setText(res[0]["html_text"])
+            }).catch(err => {
+                "ss"
             })
         }
 
