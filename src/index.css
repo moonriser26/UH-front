@@ -43,6 +43,7 @@ body {
   width: 100%;
   height: auto;
   margin: 0px;
+ 
 }
 
 .title {
@@ -62,7 +63,8 @@ body {
   color: #fff;
   font-weight: lighter;
   position: relative;
-  display: inline;
+  display: none;
+  /*display: inline;*/
   margin-top: 2%;
   left: 86%;
   font-size: 100%;
@@ -71,6 +73,9 @@ body {
 .button-login:hover {
   background-color: #fff;
   color:#000;
+}
+.block-register {
+  visibility: hidden;
 }
 .button-register {
   background: rgb(172, 172, 155);
@@ -85,11 +90,15 @@ body {
   left: 87%;
   font-size: 100%;
   padding:0.3% 0.5% 0.3% 0.5%;
+  visibility: hidden;
+  /*display: inline;*/
 }
+
 .button-register:hover {
   background-color: #fff;
   color:#000;
 }
+
 .heading {
   font-family: 'Montserrat';
   margin-top: 7%;
@@ -151,8 +160,13 @@ body {
 .title-img {
   width: 700px;
   height: 500px;
-  margin-left: 5%;
   float: left;
+  padding-right: 7%;
+  padding-bottom: 5%;
+}
+
+.unix-text {
+  padding: 5%;
 }
 .block-title div {
   padding-top: 10%;
@@ -163,7 +177,7 @@ body {
   font-weight: bold;
   color:#fff;
   font-size: 120px;
-  padding-left: 20%;
+  padding-left: 17%;
   display: inline;
  
 }
@@ -172,26 +186,17 @@ body {
   color:#fff;
   text-align: center;
   width: 33%; 
-  display: inline-block;
+  display: inline;
   font-family: 'Montserrat', sans-serif;
-  margin-left: 10%;
   font-size: 33px;
 }
-.text-3 {
-  color:#fff;
-  text-align: auto;
-  display: inline-block;
-  font-family: 'Montserrat', sans-serif;
-  margin-left: 10%;
-  margin-right: 7%;
-  padding-top: 5%;
-  font-size: 33px;
-}
+
 .title-footer {
   color:#fff;
   border-top: 3px solid #fff;
   border-bottom:3px solid #fff ;
   height: 5%;
+  margin-top: 100px;
 }
 .title-footer p {
   justify-content: 'space-between';
