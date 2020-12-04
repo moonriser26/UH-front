@@ -31,7 +31,7 @@ function About() {
                 {infoLinux}
             </p>
             <p className='text'>
-            <h4>OpenBDS</h4>
+            <h4>OpenBSD</h4>
                 {infoOpenBDS}
             </p>
             <p className='text'>
