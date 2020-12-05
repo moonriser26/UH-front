@@ -18,12 +18,12 @@ function SSH() {
             })
     }, [])
 
-    document.onload = function () {
+    document.addEventListener( "DOMContentLoaded",function () {
         const socket = new WebSocket(url_socket + '/api/os/5/ssh')
         // socket.onmessage = function (ev)
         // отправить сообщение из формы publish
-        document.forms.publish.onsubmit = function () {
-            var outgoingMessage = this.message.value;
+        document.getElementById("button_send").onclick = function () {
+            var outgoingMessage = document.getElementById("button_send").value;
 
             socket.send(outgoingMessage);
             return false;
@@ -32,6 +32,7 @@ function SSH() {
 // обработчик входящих сообщений
         socket.onmessage = function (event) {
             var incomingMessage = event.data;
+            alert(incomingMessage);
             showMessage(incomingMessage);
         };
 
@@ -41,13 +42,13 @@ function SSH() {
             messageElem.appendChild(document.createTextNode(message));
             document.getElementById('subscribe').appendChild(messageElem);
         }
-    }
+    })
 
     return (
         <div>
             <form name="publish">
                 <div><input type="text" name="message"/></div>
-                <div><input type="submit" value="Отправить"/></div>
+                <div><input type="button" value="Отправить" id="button_send"/></div>
             </form>
             <div id="subscribe"></div>
         </div>

@@ -305,3 +305,10 @@ body {
 .block-login, .block-register {
   display: inline;
 }
+
+.subscribe {
+  /*background-color: white !important;*/
+}
+.subscribe * {
+  color: white;
+}
