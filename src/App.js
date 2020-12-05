@@ -10,8 +10,8 @@ function App() {
       
       <Header/>
       <About/>
-      <Title/>
       <SSH/>
+      <Title/>
     </div>
   );
 }
