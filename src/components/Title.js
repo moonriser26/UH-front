@@ -5,56 +5,51 @@ import picture from '../images/picture.jpg'
 function Title() {
 
 
-      const [text,setText] = useState('err')
-      const uerr = "http://jsonplaceholder.typicode.com/todos?_limit=5"
+      const [text,setText] = useState('')
+      
       const URL = 'http://unix-history.org:4578/api/os/list/'
 
-       /* useEffect(() =>  { 
-            fetch(uerr)
+        useEffect(() =>  { 
+            fetch(URL)
             .then(respons => respons.json())
             .then(result => {
-                console.log(result[0]["title"])
-                //setText(result[0]["title"])
+                //console.log(result[0]["html_text"])
+                setText(result[0]["html_text"])
             })
-        },[])*/
+        },[])
 
+        /*Не работает
         function getText(url) {
             const headers = {
                 'Content-Type' : 'application/json',
-                'Access-Control-Allow-Origin' : 'http://unix-history.org:4578/api/os/list/',
+                'Access-Control-Allow-Origin' : URL,
                 'Access-Control-Allow-Credentials' : true,
                 'Access-Control-Allow-Methods' : 'GET,POST',
             }
 
-            return fetch(url, {
-                method: 'GET',
-                mode: 'no-cors',
-                headers: headers,
-            }).then(response => {
-                response.json()
-            }).then(res => {
-                setText(res[0]["html_text"])
-            }).catch(err => {
-                "ss"
-            })
-        }
+            return (
+                fetch(url, {
+                    method: 'GET',
+                    mode: 'no-cors',
+                    headers: headers,
+                }).then(response => response.json())
+                .then(res => {
+                    setText(res[0]["html_text"])
+                })
+            )
+        }*/
 
     return(
         <div className ='block-title'>
-            <p className='title'>Немного о UNIX</p>       
-            <div>
+            <p className='title'>Немного истории</p>       
+            <div className='unix-text'>
                 <img src={picture} className = 'title-img' alt='unix'></img>
-                <p className='subtitle-2'>Title</p>
+                <p className='subtitle-2'>Unix</p>
                 <br/>
-                <p className="text-2" onChange={getText(URL)}>
+                <p className="text-2" > 
                    {text}
                 </p>
             </div>
-            <p className='text-3'>
-            Дистинкция дискредитирует непредвиденный интеллект, учитывая опасность,
-            которую представляли собой писания Дюринга для не окрепшего еще немецкого
-            рабочего движения.
-            </p>
             <footer className='title-footer'>
                 <p >
                 © Unix History
