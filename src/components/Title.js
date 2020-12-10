@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import picture from '../images/picture.jpg'
-
+import url_static from '../settings'
 
 function Title() {
 
 
       const [text,setText] = useState('')
       
-      const URL = 'http://unix-history.org:4578/api/os/list/'
+      const URL = url_static + '/api/os/list/'
 
         useEffect(() =>  { 
             fetch(URL)

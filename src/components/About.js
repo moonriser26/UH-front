@@ -1,4 +1,5 @@
 import React, {useEffect,useState} from 'react'
+import url_static from "../settings";
 
 
 function About() {
@@ -8,7 +9,7 @@ function About() {
     const [infoOpenBSD,setInfoOpenBSD] = useState('')
     const [infoFreeBSD, setInfoFreeBSD] = useState('')
     
-    const URL = 'http://unix-history.org:4578/api/os/list/'
+    const URL = url_static + '/api/os/list/'
     
     useEffect(() =>  { 
         fetch(URL)

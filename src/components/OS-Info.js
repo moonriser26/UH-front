@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import picture from '../images/picture.jpg'
 import PropTypes from 'prop-types';
+import url_static from "../settings";
 
 function Info(id) {
 
     const [text,setText] = useState('')
     const osName = ['Unix','Solaris','Linux','OpenBSD']
       
-    const URL = 'http://unix-history.org:4578/api/os/list/'
+    const URL = url_static + '/api/os/list/'
 
     useEffect(() =>  { 
         fetch(URL)

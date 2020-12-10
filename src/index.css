@@ -8,39 +8,27 @@ body {
 
 .App {
   position: fixed;
-  max-width: 1920px;
-  width: 100%;
-  max-height: 1080%;
+  width: 1920px;
   height: 100%;
   overflow: auto ;
+  overflow-x: hidden;
   background: linear-gradient(to top, #000d1d, #001b3c);
 }
 
-
-@media (max-height:800px) {
-  .App{
-    max-height: 670px;
-  }
-}
-
 .block-heading {
-  max-width: 1920px;
-  width:100%;
-  max-height: 1100px;
-  height: 100%;
+  width: 1920px;
+  height: auto;
   font-style: 0;
   background: url(images/unix_background.png) 0 0/ 1920px 1534px;
 }
 .block-about {
-  max-width: 1920px;
-  width: 100%;
+  width: 1920px;
   height:auto;
   margin: 0px;
   justify-content: 'space-between';
 }
 .block-title {
-  max-width: 1920px;
-  width: 100%;
+  width: 1920px;
   height: auto;
   margin: 0px;
  
@@ -304,4 +292,11 @@ body {
 
 .block-login, .block-register {
   display: inline;
+}
+
+.subscribe {
+  /*background-color: white !important;*/
+}
+.subscribe * {
+  color: white;
 }
