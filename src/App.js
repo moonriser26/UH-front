@@ -4,6 +4,7 @@ import About from './components/About'
 import Title from './components/Title'
 import SSH from "./components/ssh";
 
+//Уже не используется
 function App() {
   return (
     <div className='App'>
