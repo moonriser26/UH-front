@@ -30,9 +30,7 @@
     background-color: #1c1c1c;
     padding-top: 50px;
 }
-.os-list {
-    
-}
+
 .os {
     display: inline-block;
     background-color: black;
@@ -61,3 +59,42 @@
     border-width: 1px;
     font-size: 20px;
 }
+
+.ssh-btn {
+    background-color: black;
+    color: #f6f6f6;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 5px 10px;
+    border-color:#f6f6f6 ;
+    border-width: 1px;
+    font-size: 20px;  
+}
+
+.os_modal h2{
+    text-align: center;
+    color:#fff;
+    font-size: 30px;
+}
+.os_modal img {
+    width: 70%; 
+    float:left
+}
+.os_modal p {
+    display: inline-block;
+    margin-left: 3%;
+    text-align: center; 
+    color: #f6f6f6;
+    font-size: 30px;   
+}
+.os_modal button {
+    background-color: black;
+    color: #f6f6f6;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-left: 30%;
+    border-color:#fff ;
+    border-width: 1px;
+    font-size: 20px;  
+}
+

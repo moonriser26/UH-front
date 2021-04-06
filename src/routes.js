@@ -6,6 +6,7 @@ import History from './Vers2/History'
 import OS from './Vers2/OS'
 import Auth from './Vers2/Auth'
 import Registr from './Vers2/Registr'
+import SSH from './Vers2/ssh'
 
 /**
  * Import all page components here
@@ -24,6 +25,7 @@ function Navigation() {
             <Route path='/os' component={OS}/>
             <Route path='/auth/login' component={Auth}/>
             <Route path='/auth/registration' component={Registr}/>
+            <Route path="/ssh" component={() => <SSH id='5'/>} />
         </Router>
     )
 }

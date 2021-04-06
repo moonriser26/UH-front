@@ -1,4 +1,5 @@
 import './Home.css'
+import {Link,Route} from 'react-router-dom'
 
 function History() {
     return(
@@ -6,10 +7,12 @@ function History() {
             {/* Навигация сайта */}
             <div className="header">
                 <div className="header__nav nav">
-                    <a className="nav__link nav__link--active" href="/">Главная страница</a>
-                    <a className="nav__link" href="/history">История{/*<Link to='/history'>История</Link>*/}</a>
-                    <a className="nav__link" href="/os">Операционные системы{/*<Link to='/os'>Операционные системы</Link>*/}</a>
-                    <a className="nav__link nav__link--bordered" href="/auth/login">Войти</a>
+                <Route>
+                    <Link className="nav__link" to="/">Главная страница</Link>
+                    <Link className="nav__link nav__link--active" to="/history">История</Link>
+                    <Link className="nav__link " to="/os">Операционные системы</Link>
+                    <Link className="nav__link nav__link--bordered" to="/auth/login">Войти</Link>
+                </Route>
                 </div>
             </div>
             <h2>History</h2>

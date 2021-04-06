@@ -1,29 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import {url_static, url_socket} from '../settings'
+import Link, { Redirect } from 'react-router-dom'
+import './OS.css'
+import './ssh.css'
 
-function SSH() {
+function SSH(props) {
 
-
-    const [text, setText] = useState('')
-
-    const URL = url_static + '/api/os/list/'
-
-    useEffect(() => {
-        fetch(URL)
-            .then(respons => respons.json())
-            .then(result => {
-                //console.log(result[0]["html_text"])
-                setText(result[0]["html_text"])
-            })
-    }, [])
-
-   /* document.addEventListener( "DOMContentLoaded",function () {
-        const socket = new WebSocket(url_socket + '/api/os/5/ssh')
+    /*document.addEventListener( "DOMContentLoaded",function () {
+        const socket = new WebSocket(url_socket + `/api/os/${props.id}/ssh`)
         // socket.onmessage = function (ev)
         // отправить сообщение из формы publish
         document.getElementById("button_send").onclick = function () {
             var outgoingMessage = document.getElementById("button_send").value;
-
+            
             socket.send(outgoingMessage);
             return false;
         };
@@ -31,7 +20,7 @@ function SSH() {
 // обработчик входящих сообщений
         socket.onmessage = function (event) {
             var incomingMessage = event.data;
-            alert(incomingMessage);
+            //alert(incomingMessage);
             showMessage(incomingMessage);
         };
 
@@ -41,15 +30,16 @@ function SSH() {
             messageElem.appendChild(document.createTextNode(message));
             document.getElementById('subscribe').appendChild(messageElem);
         }
+
     })*/
 
+
     return (
-        <div>
-            <form name="publish">
-                <div><input type="text" className="message"/></div>
-                <div><input type="button" value="Отправить" id="button_send"/></div>
-            </form>
-            <div id="subscribe"></div>
+        
+        <div>          
+            <div><input type="text" className="message" placeholder='Ваш запрос'/></div>
+            <div><input className='ssh-btn' type="button" value="Отправить" id="button_send" /></div>          
+            <div id="subscribe" className='ssh_mess'></div>
         </div>
     );
 }
