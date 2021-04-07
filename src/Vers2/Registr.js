@@ -2,6 +2,7 @@ import './Auth.css'
 import React from 'react'
 import RegForm from './RegForm'
 import LogForm from './LogForm'
+import {Link,Route} from 'react-router-dom'
 
 
 //Страница регистрации
@@ -11,10 +12,12 @@ function Registr() {
             {/*Навигация */}
             <div className="header">
                     <div className="header__nav nav">
-                    <a className="nav__link nav__link" href="/">Главная страница</a>
-                    <a className="nav__link" href="/history">История{/*<Link to='/history'>История</Link>*/}</a>
-                    <a className="nav__link" href="/os">Операционные системы{/*<Link to='/os'>Операционные системы</Link>*/}</a>
-                    <a className="nav__link nav__link--active" href="/auth/login">Войти</a>
+                        <Route>
+                            <Link className="nav__link " to="/">Главная страница</Link>
+                            {/*<Link className="nav__link" to="/history">История</Link>*/}
+                            <Link className="nav__link " to="/os">Операционные системы</Link>
+                            <Link className="nav__link nav__link--active" to="/auth/login">Войти</Link>
+                        </Route>
                     </div>
             </div>
 

@@ -25,7 +25,6 @@ function Navigation() {
             <Route path='/os' component={OS}/>
             <Route path='/auth/login' component={Auth}/>
             <Route path='/auth/registration' component={Registr}/>
-            <Route path="/ssh" component={() => <SSH id='5'/>} />
         </Router>
     )
 }

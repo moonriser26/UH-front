@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import '../index.css'
 import initAxios from 'axios';
 import { getCookie } from './cookie';
+import {Link} from 'react-router-dom'
 
 const axios = initAxios.create({
     baseURL: 'api.unix-history.org:4578/',
@@ -93,7 +94,7 @@ export default function LogForm () {
                 </div>
                 <div className='input-form'>
                     <input type='submit' value='Войти'  />
-                    <a href='/auth/registration'>Регистрация</a>
+                    <Link to='/auth/registration'>Регистрация</Link>
                 </div>
             </form>
         </div>
