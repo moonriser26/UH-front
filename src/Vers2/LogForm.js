@@ -4,9 +4,10 @@ import '../index.css'
 import initAxios from 'axios';
 import { getCookie } from './cookie';
 import {Link} from 'react-router-dom'
+import url_static from "../settings";
 
 const axios = initAxios.create({
-    baseURL: 'api.unix-history.org:4578/',
+    baseURL: url_static,
 });
 
 /*const setToken = () => {

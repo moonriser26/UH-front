@@ -1,4 +1,4 @@
-export const url = "unix-history.org:4578"
+export const url = "unix-history.org:4578/"
 export const url_static = "http://" + url
 export const url_socket = "ws://" + url
 
