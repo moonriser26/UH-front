@@ -7,6 +7,7 @@ import {Link,Redirect,Route} from 'react-router-dom'
 import { useState } from 'react'
 import Modal from './Modal'
 import {url_static} from '../settings'
+import {is_autorizated} from '../utils'
 
 
 //Страница с ОС
@@ -46,7 +47,7 @@ function OS() {
                 setText(res[number]['html_text'])
                 setSsh_enable(res[number]['ssh_enable'])
             })
-
+         
     }
     
 
@@ -63,7 +64,7 @@ function OS() {
                     </Route>
                 </div>
             </div>
-
+            
             {/*Всплывашка ОС */}
             <div className='os-content'>
                 <Modal active={modalActive} setActive={setModalActive}>
@@ -74,7 +75,7 @@ function OS() {
                             <div className='cont'><img className='os_wind' src={window} alt='window'></img>{text}</div>
                             <br/>
                             {
-                                ssh_enable ?
+                                ssh_enable && is_autorizated() ?
                                 <button onClick={() => setSshActive(true)}>Подключиться по SSH</button>
                                 :
                                 <p></p>
