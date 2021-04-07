@@ -16,20 +16,7 @@ const axios = initAxios.create({
     }
 };*/
 
-/*const login = async (data) => {
-    try {
-        const response = await api.login(data);
-        const token = response.data.key;
-        await dispatch({ type: 'SET_TOKEN', payload: token });
-        await dispatch({ type: 'TOGGLE_AUTH_MODAL', payload: false });
-        setCookie('token', token);
-        getUser();
-    } catch (e) {
-        const { data: response } = e.response;
-        await dispatch({ type: 'TOGGLE_AUTH_MODAL', payload: false });
-        errorsHandler(dispatch, response);
-    }
-};*/
+
 
     // auth
     function register(data) {

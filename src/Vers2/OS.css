@@ -27,10 +27,13 @@
 }
 
 .os-content {
-    background-color: #1c1c1c;
     padding-top: 50px;
 }
 
+.os-main {
+    height: 100vh;
+    background-color: #1c1c1c;
+}
 .os {
     display: inline-block;
     background-color: black;
@@ -49,8 +52,8 @@
 .os img {
     width: 80%;
 }
-.os-list {
-    height: 100%;
+.os-content {
+    height: auto;
 }
 
 .os button {
@@ -108,7 +111,7 @@
 }
 .os_modal div.ccc {
     
-    overflow:auto; 
+    
 }
 .os_modal button {
     background-color: black;

@@ -14,11 +14,13 @@ import {url_static} from '../settings'
 function OS() {
 
     const URL = url_static + '/api/os/list/'
+
     const [modalActive,setModalActive] = useState(false)
     const [sshActive,setSshActive] = useState(false)
     const [osName,setOsName] = useState('UNIX')
     const [id_os,setId_os] = useState('1')
     const [text, setText] = useState('')
+    const [ssh_enable,setSsh_enable] = useState(false)
     /*
      fetch(URL)
             .then(respons => respons.json())
@@ -42,13 +44,14 @@ function OS() {
             .then(res => {
                 //console.log(res[number]['html_text'])
                 setText(res[number]['html_text'])
+                setSsh_enable(res[number]['ssh_enable'])
             })
 
     }
     
 
     return(
-        <div>
+        <div className='os-main'>
             {/*Навигация */}
             <div className="header">
                 <div className="header__nav nav">
@@ -70,7 +73,13 @@ function OS() {
                             <h2>{osName}</h2>                                                   
                             <div className='cont'><img className='os_wind' src={window} alt='window'></img>{text}</div>
                             <br/>
-                            <button onClick={() => setSshActive(true)}>Подключиться по SSH</button>
+                            {
+                                ssh_enable ?
+                                <button onClick={() => setSshActive(true)}>Подключиться по SSH</button>
+                                :
+                                <button disabled>Подключиться по SSH</button>
+                            }
+                            
                         </div>                       
                         :
                         <div>

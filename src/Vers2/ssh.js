@@ -7,7 +7,7 @@ import '../index.css'
 
 function SSH(props) {
 
-    /*document.addEventListener( "DOMContentLoaded",function () {
+    document.addEventListener( "DOMContentLoaded",function () {
         const socket = new WebSocket(url_socket + `/api/os/${props.id}/ssh`)
         // socket.onmessage = function (ev)
         // отправить сообщение из формы publish
@@ -32,7 +32,7 @@ function SSH(props) {
             document.getElementById('subscribe').appendChild(messageElem);
         }
 
-    })*/
+    })
 
 
     return (
