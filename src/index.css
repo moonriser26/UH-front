@@ -63,7 +63,7 @@ body {
   color:#000;
 }
 .block-register {
-  visibility: hidden;
+  
 }
 .button-register {
   background: rgb(172, 172, 155);
@@ -230,8 +230,8 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    background: #000;
-    
+    background: rgb(23, 71, 94);
+    border-radius: 7%;
     text-align: center;
     width: 350px;
 
@@ -249,7 +249,7 @@ body {
 	text-align: center;
 }
 
-.input-form input {
+.input-form input, .input-form a{
 	padding: 10px;
 	width: 100%;
 	color: #fff;
@@ -263,7 +263,7 @@ body {
 	border: 1px solid #0fc3f5;
 }
 
-.input-form input[type="submit"] {
+.input-form input[type="submit"], .input-form a{
 	margin-top: 20px;
 	color: #fff;
 	font-weight: bold;
@@ -273,7 +273,7 @@ body {
 	transition: .3s;
 }
 
-.input-form input[type="submit"]:hover {
+.input-form input[type="submit"]:hover, .input-form a:hover {
 	background: #4442db;
 }
 
@@ -290,6 +290,17 @@ body {
 	color: #0fc3f5;
 }
 
+.input-form a {
+  text-align:center;
+  padding:10px;
+}
+
+.input-form.message {
+ width: 30%;
+ margin: 0 0 0 0;
+ margin-left:0 ;
+ display: inline-block;
+}
 .block-login, .block-register {
   display: inline;
 }
