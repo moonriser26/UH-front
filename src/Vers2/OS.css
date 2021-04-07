@@ -49,6 +49,10 @@
 .os img {
     width: 80%;
 }
+.os-list {
+    height: 86.2vh;
+}
+
 .os button {
     background-color: black;
     color: #f6f6f6;
@@ -76,25 +80,49 @@
     color:#fff;
     font-size: 30px;
 }
-.os_modal img {
-    width: 70%; 
+.os_wind {
+    width: 60%; 
     float:left
 }
-.os_modal p {
+.ssh_wind {
+    width: 60%;
+    float: left;
+    
+}
+.ssh_content {
+    text-align: center;
+}
+.os_modal div.cont {
     display: inline-block;
     margin-left: 3%;
     text-align: center; 
     color: #f6f6f6;
-    font-size: 30px;   
+    font-size: 30px;
+    overflow:auto;
+    max-height: 30vh;   
+}
+.os_modal div.ccc {
+    
+    overflow:auto; 
 }
 .os_modal button {
     background-color: black;
     color: #f6f6f6;
     border-radius: 5px;
     padding: 5px 10px;
-    margin-left: 30%;
+    margin-top: 5%;
+    margin-left: 20%;
     border-color:#fff ;
     border-width: 1px;
-    font-size: 20px;  
+    font-size: 30px;  
+}
+.os_modal button:hover {
+    background-color: white;
+    color: black;
+    transition: 0.3s;
+}
+.os-text {
+  overflow:hidden;
+  max-height: 10%;  
 }
 

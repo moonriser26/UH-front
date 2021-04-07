@@ -295,6 +295,12 @@ body {
   padding:10px;
 }
 
+.input-form.message {
+ width: 30%;
+ margin: 0 0 0 0;
+ margin-left:0 ;
+ display: inline-block;
+}
 .block-login, .block-register {
   display: inline;
 }

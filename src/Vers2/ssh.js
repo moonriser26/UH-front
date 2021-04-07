@@ -3,6 +3,7 @@ import {url_static, url_socket} from '../settings'
 import Link, { Redirect } from 'react-router-dom'
 import './OS.css'
 import './ssh.css'
+import '../index.css'
 
 function SSH(props) {
 
@@ -37,9 +38,11 @@ function SSH(props) {
     return (
         
         <div>          
-            <div><input type="text" className="message" placeholder='Ваш запрос'/></div>
-            <div><input className='ssh-btn' type="button" value="Отправить" id="button_send" /></div>          
-            <div id="subscribe" className='ssh_mess'></div>
+            <div className='input-form message'>
+                <input type="text" placeholder='Ваш запрос'/>
+            </div>
+            <div><input className='ssh-btn' type="submit" value="Отправить" id="button_send" /></div>          
+            <div id="subscribe" className='ssh_mess'>Messages:</div>
         </div>
     );
 }
