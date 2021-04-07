@@ -24,8 +24,8 @@ function Home() {
                 {/*Главная страница*/}
                 <div className="main">
                     <div className="main__text-block">
-                    <h1 className="main__heading">Title</h1>
-                    <p className="main__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+                    <h1 className="main__heading">Linux</h1>
+                    <p className="main__text">UNIX - Великое семейство операционных систем, с самой лучшей историей в мире, и мы хотим показать, что они могут, мы даём доступ к демонстрационным образцам части систем (так как они добавляются вручную)</p>
                     </div>
                     <img className="main__img" src={logo} alt="Logo"/>
                 </div>
