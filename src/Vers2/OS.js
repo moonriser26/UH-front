@@ -13,7 +13,7 @@ import {url_static} from '../settings'
 
 function OS() {
 
-    const URL = url_static + '/api/os/list/'
+    const URL = url_static + 'api/os/list/'
 
     const [modalActive,setModalActive] = useState(false)
     const [sshActive,setSshActive] = useState(false)
