@@ -8,7 +8,7 @@ function Info(id) {
     const [text,setText] = useState('')
     const osName = ['Unix','Solaris','Linux','OpenBSD']
       
-    const URL = url_static + '/api/os/list/'
+    const URL = url_static + 'api/os/list/'
 
     useEffect(() =>  { 
         fetch(URL)

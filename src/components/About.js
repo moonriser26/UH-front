@@ -9,7 +9,7 @@ function About() {
     const [infoOpenBSD,setInfoOpenBSD] = useState('')
     const [infoFreeBSD, setInfoFreeBSD] = useState('')
     
-    const URL = url_static + '/api/os/list/'
+    const URL = url_static + 'api/os/list/'
     
     useEffect(() =>  { 
         fetch(URL)

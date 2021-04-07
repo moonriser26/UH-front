@@ -7,7 +7,7 @@ function SSH() {
 
     const [text, setText] = useState('')
 
-    const URL = url_static + '/api/os/list/'
+    const URL = url_static + 'api/os/list/'
 
     useEffect(() => {
         fetch(URL)
@@ -19,7 +19,7 @@ function SSH() {
     }, [])
 
     document.addEventListener( "DOMContentLoaded",function () {
-        const socket = new WebSocket(url_socket + '/api/os/5/ssh')
+        const socket = new WebSocket(url_socket + 'api/os/5/ssh')
         // socket.onmessage = function (ev)
         // отправить сообщение из формы publish
         document.getElementById("button_send").onclick = function () {

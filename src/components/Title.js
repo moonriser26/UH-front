@@ -7,7 +7,7 @@ function Title() {
 
       const [text,setText] = useState('')
       
-      const URL = url_static + '/api/os/list/'
+      const URL = url_static + 'api/os/list/'
 
         useEffect(() =>  { 
             fetch(URL)
