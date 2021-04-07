@@ -27,3 +27,4 @@ yarn-error.log*
 
 .eslintcache
 src/settings.js
+package-lock.json
