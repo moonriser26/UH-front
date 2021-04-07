@@ -77,7 +77,7 @@ function OS() {
                                 ssh_enable ?
                                 <button onClick={() => setSshActive(true)}>Подключиться по SSH</button>
                                 :
-                                <button disabled>Подключиться по SSH</button>
+                                <p></p>
                             }
                             
                         </div>                       

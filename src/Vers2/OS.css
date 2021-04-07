@@ -32,6 +32,10 @@
 
 .os-main {
     height: 100vh;
+    width: 100vw;
+    background-color: #1c1c1c;
+}
+.os-list {
     background-color: #1c1c1c;
 }
 .os {
@@ -52,9 +56,7 @@
 .os img {
     width: 80%;
 }
-.os-content {
-    height: auto;
-}
+
 
 .os button {
     background-color: black;
