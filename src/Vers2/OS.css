@@ -48,6 +48,10 @@
     border-radius: 20px;
     box-shadow: 0 0 40px black;
 }
+.os:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+}
 .os p {
     color: white;
     font-size: 30px;

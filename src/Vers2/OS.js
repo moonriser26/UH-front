@@ -3,11 +3,14 @@ import './OS.css'
 import screen from '../images/screen.png'
 import window from '../images/window.png'
 import SSH from './ssh'
-import {Link,Redirect,Route} from 'react-router-dom'
+import {Link,Route} from 'react-router-dom'
 import { useState } from 'react'
 import Modal from './Modal'
 import {url_static} from '../settings'
 import {is_autorizated} from '../utils'
+
+
+
 
 
 //Страница с ОС
@@ -22,37 +25,62 @@ function OS() {
     const [id_os,setId_os] = useState('1')
     const [text, setText] = useState('')
     const [ssh_enable,setSsh_enable] = useState(false)
-    /*
-     fetch(URL)
-            .then(respons => respons.json())
-            .then(result => {
-                //console.log(result[0]["html_text"])
-                setText(result[0]["html_text"])
-            })
-    */
-    
-    function clickHandler(id,number) {
-        setModalActive(true)
-        switch(id) {
-            case 2: setOsName('Solaris');setId_os('2');break;
-            case 3: setOsName('Linux');setId_os('3');break;
-            case 4: setOsName('OpenBSD');setId_os('4');break;
-            case 5: setOsName('FreeBSD');setId_os('5'); break;
-            default: setOsName('UNIX');
-        }
+   
+    const [os_data,setOs_data] = useState([])
+    const [res_act,setRes_act] = useState(true)
+    if (res_act) {
         fetch(URL)
-            .then(response => response.json())
-            .then(res => {
-                //console.log(res[number]['html_text'])
-                setText(res[number]['html_text'])
-                setSsh_enable(res[number]['ssh_enable'])
-            })
-         
+        .then(response => response.json())
+        .then(res => {
+            setOs_data(res)
+        })
+        setRes_act(false)
     }
     
+    
+    function clickHandler(num) {
+        setModalActive(true)
+        setSshActive(true)
+        setOsName(os_data[num]['name'])
+        setId_os(os_data[num]['id'])
+        setText(os_data[num]['html_text'])
+        setSsh_enable(os_data[num]['ssh_enable'])        
+    }
+    
+    function os_click(num) {
+        setModalActive(true)
+        setOsName(os_data[num]['name'])
+        setId_os(os_data[num]['id'])
+        setText(os_data[num]['html_text'])
+        setSsh_enable(os_data[num]['ssh_enable'])
+        
+            
+    }
+    //Отображение списка всех ОС
+    const ListOs = []
+   
+    function tableOS() {
+        for (let i=0; i<os_data.length; i++)
+        {
+            ListOs.push(
+                <div className='os' key={i} onClick={() => os_click(i)}>
+                    <p>{os_data[i]['name']}</p>
+                    <img src={screen} alt='screen'></img>
+                    <br/>
+                    {
+                        ssh_enable && is_autorizated() ?
+                        <button onClick={() => clickHandler(i)}>SSH</button>
+                        : <button disabled>SSH</button>
+                    }
+                                                
+                </div> 
+            )
+        }
+    }
 
     return(
         <div className='os-main'>
+
             {/*Навигация */}
             <div className="header">
                 <div className="header__nav nav">
@@ -78,7 +106,7 @@ function OS() {
                                 ssh_enable && is_autorizated() ?
                                 <button onClick={() => setSshActive(true)}>Подключиться по SSH</button>
                                 :
-                                <p></p>
+                                <div></div>
                             }
                             
                         </div>                       
@@ -90,14 +118,11 @@ function OS() {
                                 :
                                 <div>
                                     <h2>{osName}</h2>                                                   
-                                    <p className='ssh_content'>
+                                    <div className='ssh_content'>
                                         <img className='ssh_wind' src={window} alt='window'></img>
                                         <SSH id={id_os}/>
-                                    </p>
-                                    
-                                    
-                                </div>
-                                
+                                    </div>                                                                      
+                                </div>                             
                             }
                             
                         </div>
@@ -107,44 +132,10 @@ function OS() {
                 </Modal>
 
                 {/*Список ОС */}
-                <div className='os-list'>
+                <div className='os-list'>                    
                     
-                    <div className='os'>
-                        <p>UNIX</p>
-                        <img src={screen} alt='screen'></img>
-                        <br/>
-                        <button onClick={() => clickHandler(1,4)}>Выбрать</button>
-                    </div>
-
-                    <div className='os'>
-                        <p>Solaris</p>
-                        <img src={screen} alt='screen'></img>
-                        <br/>
-                        <button onClick={() => clickHandler(2,1)}>Выбрать</button>
-                    </div>
-
-                    <div className='os'>
-                        <p>Linux</p>
-                        <img src={screen} alt='screen'></img>
-                        <br/>
-                        <button onClick={() => clickHandler(3,0)}>Выбрать</button>
-                    </div>
-                    
-                    <div className='os'>
-                        <p>OpenBSD</p>
-                        <img src={screen} alt='screen'></img>
-                        <br/>
-                        <button onClick={() => clickHandler(4,2)}>Выбрать</button>
-                    </div>
-
-                    <div className='os'>
-                        <p>FreeBSD</p>
-                        <img src={screen} alt='screen'></img>
-                        <br/>
-                        
-                        <button onClick={() => clickHandler(5,3)}>Выбрать</button>                       
-                    </div>
-               
+                    {tableOS()}
+                    <div>{ListOs}</div>             
                 </div>
             </div>
         
