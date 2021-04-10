@@ -17,7 +17,7 @@ import {is_autorizated} from '../utils'
 
 function OS() {
 
-    const URL = url_static + '/api/os/list/'
+    const URL = url_static + 'api/os/list/'
 
     const [modalActive,setModalActive] = useState(false)
     const [sshActive,setSshActive] = useState(false)
@@ -68,12 +68,11 @@ function OS() {
                     <img src={screen} alt='screen'></img>
                     <br/>
                     {
-                        ssh_enable && is_autorizated() ?
-                        <button onClick={() => clickHandler(i)}>SSH</button>
-                        : <button disabled>SSH</button>
+                        os_data[i]['ssh_enable'] && is_autorizated() ?
+                            <button onClick={() => clickHandler(i)}>SSH</button>
+                            : <button style={{visibility: 'hidden'}}>SSH</button>
                     }
-                                                
-                </div> 
+                </div>
             )
         }
     }
