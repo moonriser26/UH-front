@@ -9,21 +9,24 @@ function SSH(props) {
 
     //document.addEventListener( "DOMContentLoaded",
     setTimeout(function () {
-        const socket = new WebSocket(url_socket + `api/os/${props.id}/ssh`);
+        const socket = new WebSocket(url_socket + `/api/os/${props.id}/ssh`);
         // socket.onmessage = function (ev)
         // отправить сообщение из формы publish
+        socket.onopen = function(e) {
         document.getElementById("button_send").onclick = function () {
             let outgoingMessage = document.getElementById("ssh_command").value + '\n';
             
             socket.send(outgoingMessage);
-            return false;
+            return false
         };
+        }
 
 // обработчик входящих сообщений
         socket.onmessage = function (event) {
             var incomingMessage = event.data;
             console.log(incomingMessage);
             showMessage(incomingMessage);
+            return false
         };
 
 // показать сообщение в div#subscribe
@@ -31,6 +34,10 @@ function SSH(props) {
             let messageElem = document.createElement('div');
             messageElem.appendChild(document.createTextNode(message));
             document.getElementById('subscribe').appendChild(messageElem);
+        }
+
+        socket.onclose = function() {
+            alert("websocket closing")
         }
     }, 10);
 
