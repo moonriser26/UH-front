@@ -22,7 +22,7 @@ function SSH(props) {
 // обработчик входящих сообщений
         socket.onmessage = function (event) {
             var incomingMessage = event.data;
-            //alert(incomingMessage);
+            console.log(incomingMessage);
             showMessage(incomingMessage);
         };
 
