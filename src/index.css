@@ -14,10 +14,10 @@ body {
     z-index: 2;
     text-align: center;
     display: none;
-    width: 220px;
+    
 }
 .login-form-open {
-    position: absolute;
+    position:absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
@@ -25,6 +25,7 @@ body {
     border-radius: 7%;
     text-align: center;
     width: 350px;
+
 
 }
 .login-form-open h1 {
@@ -61,9 +62,12 @@ body {
 	text-transform: uppercase;
 	border: none;
 	background: #0fc3f5;
-	transition: .3s;
+	
 }
-
+.reg-input {
+	font-size: 20px;
+	margin: 0;
+}
 .input-form input[type="submit"]:hover, .input-form a:hover {
 	background: #4442db;
 }
@@ -77,6 +81,7 @@ body {
 	transition: .3s;
 }
 
+
 .login-form-open a:hover {
 	color: #0fc3f5;
 }
@@ -87,8 +92,8 @@ body {
 }
 
 .input-form.message {
- width: 30%;
- margin: 0 0 0 0;
+ width: 80%;
+ margin: 0 0 2% 0;
  margin-left:0 ;
  display: inline-block;
 }
@@ -101,4 +106,21 @@ body {
 }
 .subscribe * {
   color: white;
+}
+
+@media screen and (min-width:1200px) {
+	.login-form-open {
+		width: 500px;
+		padding-bottom:10px ;
+	}
+	.input-form input {
+		font-size: 40px;
+	}
+	.reg-input {
+		font-size: 30px;
+		margin: 0;
+	}
+	.login-form-open h1 {
+		font-size: 40px;
+	}
 }

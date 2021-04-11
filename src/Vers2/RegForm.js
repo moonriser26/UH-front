@@ -47,7 +47,7 @@ function RegForm() {
                     />
                 </div>
                 <div className='input-form'>
-                    <input type='submit' value='Зарегистрироваться' />
+                    <input type='submit' value='Регистрация' />
                 </div>
             </form>
         </div>

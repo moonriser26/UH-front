@@ -81,7 +81,7 @@ export default function LogForm () {
                 </div>
                 <div className='input-form'>
                     <input type='submit' value='Войти'  />
-                    <Link to='/auth/registration'>Регистрация</Link>
+                    <Link to='/auth/registration'><p className='reg-input' >Регистрация</p></Link>
                 </div>
             </form>
         </div>

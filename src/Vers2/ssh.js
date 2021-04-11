@@ -6,13 +6,14 @@ import './ssh.css'
 import '../index.css'
 
 function SSH(props) {
-
-    /*document.addEventListener( "DOMContentLoaded",function () {
-        const socket = new WebSocket(url_socket + `/api/os/${props.id}/ssh`)
+/*
+    //document.addEventListener( "DOMContentLoaded",
+    setTimeout(function () {
+        const socket = new WebSocket(url_socket + `api/os/${props.id}/ssh`);
         // socket.onmessage = function (ev)
         // отправить сообщение из формы publish
         document.getElementById("button_send").onclick = function () {
-            var outgoingMessage = document.getElementById("button_send").value;
+            let outgoingMessage = document.getElementById("ssh_command").value + '\n';
             
             socket.send(outgoingMessage);
             return false;
@@ -27,19 +28,18 @@ function SSH(props) {
 
 // показать сообщение в div#subscribe
         function showMessage(message) {
-            var messageElem = document.createElement('div');
+            let messageElem = document.createElement('div');
             messageElem.appendChild(document.createTextNode(message));
             document.getElementById('subscribe').appendChild(messageElem);
         }
-
-    })*/
+    }, 10);*/
 
 
     return (
         
-        <div>          
+        <div className='ssh-window'>          
             <div className='input-form message'>
-                <input type="text" placeholder='Ваш запрос'/>
+                <input type="text" placeholder='Ваш запрос' id="ssh_command"/>
             </div>
             <div><input className='ssh-btn' type="submit" value="Отправить" id="button_send" /></div>          
             <div id="subscribe" className='ssh_mess'>Messages:</div>

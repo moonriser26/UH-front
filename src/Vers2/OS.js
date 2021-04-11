@@ -68,12 +68,11 @@ function OS() {
                     <img src={screen} alt='screen'></img>
                     <br/>
                     {
-                        ssh_enable && is_autorizated() ?
-                        <button onClick={() => clickHandler(i)}>SSH</button>
-                        : <button disabled>SSH</button>
+                        os_data[i]['ssh_enable'] && is_autorizated() ?
+                            <button onClick={() => clickHandler(i)}>SSH</button>
+                            : <button style={{visibility: 'hidden'}}>SSH</button>
                     }
-                                                
-                </div> 
+                </div>
             )
         }
     }
@@ -119,7 +118,7 @@ function OS() {
                                 <div>
                                     <h2>{osName}</h2>                                                   
                                     <div className='ssh_content'>
-                                        <img className='ssh_wind' src={window} alt='window'></img>
+                                        
                                         <SSH id={id_os}/>
                                     </div>                                                                      
                                 </div>                             
