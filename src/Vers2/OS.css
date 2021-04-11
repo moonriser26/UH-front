@@ -140,3 +140,15 @@
   max-height: 10%;  
 }
 
+@media screen and (min-width:1800px) {
+    .os {
+        width: 20%;
+    }
+}
+
+@media screen and (min-width:2000px) {
+    .os {
+        width: 30%;
+    }
+}
+

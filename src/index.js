@@ -9,6 +9,7 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
+    
     <Navigation />
     {/*<Route exact path="/ssh" component={ssh} />*/}
   </React.StrictMode>,
