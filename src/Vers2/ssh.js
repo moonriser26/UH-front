@@ -6,7 +6,7 @@ import './ssh.css'
 import '../index.css'
 
 function SSH(props) {
-/*
+
     //document.addEventListener( "DOMContentLoaded",
     setTimeout(function () {
         const socket = new WebSocket(url_socket + `api/os/${props.id}/ssh`);
@@ -22,7 +22,7 @@ function SSH(props) {
 // обработчик входящих сообщений
         socket.onmessage = function (event) {
             var incomingMessage = event.data;
-            //alert(incomingMessage);
+            console.log(incomingMessage);
             showMessage(incomingMessage);
         };
 
@@ -32,7 +32,7 @@ function SSH(props) {
             messageElem.appendChild(document.createTextNode(message));
             document.getElementById('subscribe').appendChild(messageElem);
         }
-    }, 10);*/
+    }, 10);
 
 
     return (
