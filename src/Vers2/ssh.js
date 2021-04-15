@@ -9,7 +9,7 @@ function SSH(props) {
 
     //document.addEventListener( "DOMContentLoaded",
     setTimeout(function () {
-        const socket = new WebSocket(url_socket + `/api/os/${props.id}/ssh`);
+        const socket = new WebSocket(url_socket + `api/os/${props.id}/ssh`);
         // socket.onmessage = function (ev)
         // отправить сообщение из формы publish
         socket.onopen = function(e) {

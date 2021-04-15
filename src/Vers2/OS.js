@@ -17,7 +17,7 @@ import {is_autorizated} from '../utils'
 
 function OS() {
 
-    const URL = url_static + '/api/os/list/'
+    const URL = url_static + 'api/os/list/'
 
     const [modalActive,setModalActive] = useState(false)
     const [sshActive,setSshActive] = useState(false)
