@@ -46,7 +46,7 @@ function SSH(props) {
         
         <div className='ssh-window'>          
             <div className='input-form message'>
-                <input type="text" placeholder='Ваш запрос' id="ssh_command"/>
+                <input type="text" placeholder='Ваш запрос (например: "uname -a")' id="ssh_command"/>
             </div>
             <div><input className='ssh-btn' type="submit" value="Отправить" id="button_send" /></div>          
             <div id="subscribe" className='ssh_mess'>Messages:</div>
