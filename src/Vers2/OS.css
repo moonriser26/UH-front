@@ -42,7 +42,7 @@
 .os {
     display: inline-block;
     background-color: black;
-  
+    position: relative;
    margin-left: 5%;
    margin-bottom: 3%;
     text-align: center;
@@ -111,7 +111,7 @@
 .os_modal div.cont {
     display: inline-block;
     margin-left: 3%;
-    text-align: center; 
+    text-align: left; 
     color: #f6f6f6;
     font-size: 30px;
     overflow:auto;

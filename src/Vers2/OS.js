@@ -8,6 +8,7 @@ import { useState } from 'react'
 import Modal from './Modal'
 import {url_static} from '../settings'
 import {is_autorizated} from '../utils'
+import { useSelector } from 'react-redux';
 
 
 
@@ -16,14 +17,15 @@ import {is_autorizated} from '../utils'
 //Страница с ОС
 
 function OS() {
+    const isAuth = useSelector(state => state.user.isAuth)
 
-    const URL = url_static + '/api/os/list/'
+    const URL = url_static + 'api/os/list/'
 
     const [modalActive,setModalActive] = useState(false)
     const [sshActive,setSshActive] = useState(false)
     const [osName,setOsName] = useState('UNIX')
     const [id_os,setId_os] = useState('1')
-    const [text, setText] = useState('')
+    const [text, setText] = useState(null)
     const [ssh_enable,setSsh_enable] = useState(false)
    
     const [os_data,setOs_data] = useState([])
@@ -44,7 +46,7 @@ function OS() {
         setOsName(os_data[num]['name'])
         setId_os(os_data[num]['id'])
         setText(os_data[num]['html_text'])
-        setSsh_enable(os_data[num]['ssh_enable'])        
+        setSsh_enable(os_data[num]['ssh_enable'])
     }
     
     function os_click(num) {
@@ -53,8 +55,7 @@ function OS() {
         setId_os(os_data[num]['id'])
         setText(os_data[num]['html_text'])
         setSsh_enable(os_data[num]['ssh_enable'])
-        
-            
+               
     }
     //Отображение списка всех ОС
     const ListOs = []
@@ -69,8 +70,8 @@ function OS() {
                     <br/>
                     {
                         os_data[i]['ssh_enable'] && is_autorizated() ?
-                            <button onClick={() => clickHandler(i)}>SSH</button>
-                            : <button style={{visibility: 'hidden'}}>SSH</button>
+                            <button onClick={() => clickHandler(i)}>Попробовать</button>
+                            : <button style={{visibility: 'hidden'}}>Попробовать</button>
                     }
                 </div>
             )
@@ -87,7 +88,7 @@ function OS() {
                         <Link className="nav__link" to="/">Главная страница</Link>
                         {/*<Link className="nav__link" to="/history">История</Link>*/}
                         <Link className="nav__link nav__link--active" to="/os">Операционные системы</Link>
-                        <Link className="nav__link nav__link--bordered" to="/auth/login">Войти</Link>
+                        {!isAuth && <Link className="nav__link nav__link--bordered" to="/auth/login">Войти</Link>}
                     </Route>
                 </div>
             </div>

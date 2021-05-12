@@ -36,9 +36,10 @@ function SSH(props) {
             document.getElementById('subscribe').appendChild(messageElem);
         }
 
-        socket.onclose = function() {
+        /*socket.onclose = function() {
             alert("websocket closing")
-        }
+            
+        }*/
     }, 10);
 
 
