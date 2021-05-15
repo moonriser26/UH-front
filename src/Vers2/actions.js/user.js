@@ -35,13 +35,11 @@ export const login = (username,password) => {
                 
             })
             const token = response.data.key;
-            //dispatch(setToken(token))
+            dispatch(setToken(token))
             
-            setCookie('token',token)
-            const dt = document.cookie['csrftoken']
+            setCookie('token',token)          
 
             console.log(token)
-            console.log(dt)
             
         } catch(e) {
             alert(e)

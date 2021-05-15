@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import {url_static, url_socket} from '../settings'
-import Link, { Redirect } from 'react-router-dom'
 import './OS.css'
 import './ssh.css'
 import '../index.css'
+import {sshMess} from './sshMess'
 
 function SSH(props) {
 
@@ -32,14 +32,24 @@ function SSH(props) {
 // показать сообщение в div#subscribe
         function showMessage(message) {
             let messageElem = document.createElement('div');
+
+            messageElem.innerHTML = message
+            var text = messageElem.textContent || messageElem.innerText || ""
+            console.log(messageElem.innerText || "")
+            console.log(messageElem.innerText)
+            console.log( messageElem.textContent || "")
+            console.log( messageElem.textContent)
+            console.log(messageElem[0])
             messageElem.appendChild(document.createTextNode(message));
             document.getElementById('subscribe').appendChild(messageElem);
+            
         }
 
-        /*socket.onclose = function() {
-            alert("websocket closing")
-            
-        }*/
+        if (!props.active) {
+            socket.close()
+        }
+
+        
     }, 10);
 
 

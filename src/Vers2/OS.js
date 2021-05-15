@@ -27,6 +27,8 @@ function OS() {
     const [id_os,setId_os] = useState('1')
     const [text, setText] = useState(null)
     const [ssh_enable,setSsh_enable] = useState(false)
+    const [photo, setPhoto] = useState(null)
+    
    
     const [os_data,setOs_data] = useState([])
     const [res_act,setRes_act] = useState(true)
@@ -47,6 +49,8 @@ function OS() {
         setId_os(os_data[num]['id'])
         setText(os_data[num]['html_text'])
         setSsh_enable(os_data[num]['ssh_enable'])
+        setPhoto(os_data[num]['photos']['path'])
+        
     }
     
     function os_click(num) {
@@ -55,7 +59,7 @@ function OS() {
         setId_os(os_data[num]['id'])
         setText(os_data[num]['html_text'])
         setSsh_enable(os_data[num]['ssh_enable'])
-               
+        setPhoto(os_data[num]['photos']['path'])
     }
     //Отображение списка всех ОС
     const ListOs = []
@@ -100,11 +104,14 @@ function OS() {
                         {!sshActive ?
                         <div className='ccc'>
                             <h2>{osName}</h2>                                                   
-                            <div className='cont'><img className='os_wind' src={window} alt='window'></img>{text}</div>
+                            <div className='cont'>
+                                <img className='os_wind' src={photo} alt='window'></img>
+                                <code>{text}</code>
+                            </div>
                             <br/>
                             {
                                 ssh_enable && is_autorizated() ?
-                                <button onClick={() => setSshActive(true)}>Подключиться по SSH</button>
+                                <button className='button_start' onClick={() => setSshActive(true)}>Попробовать</button>
                                 :
                                 <div></div>
                             }
@@ -120,7 +127,7 @@ function OS() {
                                     <h2>{osName}</h2>                                                   
                                     <div className='ssh_content'>
                                         
-                                        <SSH id={id_os}/>
+                                        <SSH id={id_os} active={modalActive}/>
                                     </div>                                                                      
                                 </div>                             
                             }

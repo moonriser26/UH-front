@@ -14,15 +14,18 @@ function App() {
   return (
     <BrowserRouter>
       <div className='App'>
-        {!isAuth &&
+        {/*
           <Switch>
           <Route path='/auth/login' component={Auth}/>
           <Route path='/auth/registration' component={Registr}/>
-        </Switch>
+        </Switch>*/
         }
         <Switch>
           <Route exact path='/' component={Home}/>
           <Route path='/os' component={OS}/>
+          <Route path='/auth/login' component={Auth}/>
+          <Route path='/auth/registration' component={Registr}/>
+         
         </Switch>
       </div>
     </BrowserRouter>

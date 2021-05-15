@@ -11,6 +11,7 @@
   
 .header__nav {
     margin-left: auto;
+    
 }
   
 .nav__link {
@@ -20,6 +21,7 @@
     font-family: Montserrat, sans-serif;
     letter-spacing: 2px;
     margin-right: 50px;
+    
 }
   
 .nav__link--active {
@@ -34,6 +36,7 @@
     height: 100vh;
     width: 100vw;
     background-color: #1c1c1c;
+    overflow-x: hidden;
 }
 .os-list {
     background-color: #1c1c1c;
@@ -43,12 +46,12 @@
     display: inline-block;
     background-color: black;
     position: relative;
-   margin-left: 5%;
-   margin-bottom: 3%;
+    margin-left: 3%;
+    margin-bottom: 3%;
     text-align: center;
     border-radius: 20px;
     box-shadow: 0 0 40px black;
-    
+    margin-right: 2%;
 }
 .os:hover {
     transform: scale(1.1);
@@ -97,21 +100,23 @@
     font-size: 30px;
 }
 .os_wind {
-    width: 60%; 
-    float:left
+    
+    width: 500px;
+    max-width: 60%;
+    float: left;
+    margin-left: auto;
+    margin-right: 3%;
+    margin-bottom: 45px;
 }
 .ssh_wind {
     width: 60%;
     float: left;
-    
 }
-.ssh_content {
-    
-}
+
 .os_modal div.cont {
     display: inline-block;
     margin-left: 3%;
-    text-align: left; 
+     
     color: #f6f6f6;
     font-size: 30px;
     overflow:auto;
@@ -123,8 +128,8 @@
     color: #f6f6f6;
     border-radius: 5px;
     padding: 5px 10px;
-    margin-top: 5%;
-    margin-left: 20%;
+    margin-top: 2%;
+    margin-left: 45%;
     border-color:#fff ;
     border-width: 1px;
     font-size: 30px;  

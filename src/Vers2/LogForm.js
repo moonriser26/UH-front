@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import '../index.css'
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { login } from './actions.js/user'
+import {useSelector} from 'react-redux'
 
 //Окно авторизации
 export default function LogForm () {
-  
+    const isAuth = useSelector(state => state.user.isAuth)
+
     //То что вводит пользователь в поля email и password
     const [email,setEmail] = useState('')
     const [pass,setPass] = useState('')
@@ -16,6 +18,7 @@ export default function LogForm () {
     function handleSubmit (e) {
         e.preventDefault()
     }
+   
 
 
     
