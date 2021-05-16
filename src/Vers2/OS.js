@@ -97,7 +97,7 @@ function OS() {
                     <Route>
                         <Link className="nav__link" to="/">Главная страница</Link>
                         <Link className="nav__link nav__link--active" to="/os">Операционные системы</Link>
-                        <Link to='/commands'><p className="nav__link ">Справочник</p></Link>
+                        <Link to='/commands' className="nav__link">Справочник</Link>
                         {!isAuth && <Link className="nav__link nav__link--bordered" to="/auth/login">Войти</Link>}
                     </Route>
                 </div>
