@@ -32,17 +32,11 @@ function SSH(props) {
 // показать сообщение в div#subscribe
         function showMessage(message) {
             let messageElem = document.createElement('div');
-
-           /* messageElem.innerHTML = message
-            var text = messageElem.textContent || messageElem.innerText || ""*/
-           /* console.log(messageElem.innerText || "")
-            console.log(messageElem.innerText)
-            console.log( messageElem.textContent || "")
-            console.log( messageElem.textContent)
-            console.log(messageElem)*/
-            messageElem.appendChild(document.createTextNode(message));
-            document.getElementById('subscribe').appendChild(messageElem);
-            
+            messageElem.innerHTML = message
+            //console.log(message)
+           // messageElem.appendChild(document.createTextNode(message));
+            document.getElementById('subscribe').appendChild(messageElem)
+            document.getElementById('subscribe').lastChild.scrollIntoView(false)
         }
 
         if (!props.active) {
