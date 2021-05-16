@@ -1,47 +1,25 @@
 import React, { useEffect, useState } from 'react'
+import '../index.css'
 
-export default function RegisterForm() {
+//Окно регистрации
+function RegForm() {
 
+    //Данные для пост запроса 
     const[form_reg,setForm_reg] = useState({
-        email:'', password: '',repeat_password:''
+        email:'', 
+        password: '',
+        repeat_password:''
     })
 
-    const [isOpenR,setIsOpenR] = useState(false)
-
-    const [nameForm,setNameForm] = useState('login-form')
-
-    const nameHandler = isOpenR  => {
-        if (isOpenR)
-            setNameForm('login-form-open')
-        else
-            setNameForm('login-form')
-    }
-
-    function submitHandler(event) {
-        event.preventDefault()
-        if(isOpenR)
-            setForm_reg('','')
-    }
-
-    useEffect(() => {
-        console.log('State change', isOpenR)
-        nameHandler(isOpenR)
-    },[isOpenR])
-    
-    useEffect(() => {
+    /*useEffect(() => {
         console.log('Form change, email: ', form_reg.email,', password: ',form_reg.password,', repeat: ',form_reg.repeat_password)
-    },[form_reg])
+    },[form_reg])*/
 
 
     return (
         <div className='block-register'>
-            <button 
-                className='button-register'
-                onClick={() => setIsOpenR(!isOpenR)} 
-            >
-            Регистрация
-            </button> 
-            <form className={nameForm}>
+            
+            <form className='login-form-open'>
                 <h1>Регистрация</h1>
                 <div className='input-form'>
                     <input 
@@ -62,17 +40,18 @@ export default function RegisterForm() {
                 </div>
                 <div className='input-form'>
                     <input 
-                        id='password'
+                        id='repeat password'
                         type='password' 
                         placeholder='Повторите пароль'
                         onChange={(event) => setForm_reg({ ...form_reg, repeat_password: event.target.value })}
                     />
                 </div>
                 <div className='input-form'>
-                    <input type='submit' value='Зарегистрироваться' onSubmit={submitHandler}/>
+                    <input type='submit' value='Зарегистрироваться' />
                 </div>
             </form>
         </div>
     )
 }
 
+export default RegForm

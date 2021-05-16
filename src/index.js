@@ -1,14 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+
+import Navigation from './routes'
 import reportWebVitals from './reportWebVitals';
 // import { Router} from 'react-router';
 // import routes from './routes';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    
+    <Navigation />
     {/*<Route exact path="/ssh" component={ssh} />*/}
   </React.StrictMode>,
   document.getElementById('root')
