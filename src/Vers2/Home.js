@@ -19,7 +19,6 @@ function Home() {
                     <div className="header__nav nav">
                     <Route>
                         <Link to="/"><p className="nav__link nav__link--active">Главная страница</p></Link>
-                        {/*<Link className="nav__link" to="/history">История</Link>*/}
                         <Link to="/os"><p className="nav__link ">Операционные системы</p></Link>
                         {!isAuth && <Link to="/auth/login"><p className="nav__link nav__link--bordered">Войти</p></Link>}
                         {isAuth && <div className='nav__link' onClick={() =>dispatch(logout())}>Выйти</div>}
@@ -31,7 +30,7 @@ function Home() {
                     <div className="main__text-block">
                         <h1 className="main__heading">Unix history</h1>
                         <p className="main__text">UNIX - Великое семейство операционных систем, с самой лучшей историей в мире, и мы хотим показать, что они могут, мы даём доступ к демонстрационным образцам части систем (так как они добавляются вручную)</p>
-                        <p className="main__text"><a href={url_static}><span className="main__button">Перейти к системам</span></a></p>
+                        <center><Link to='/os'><span className="main__button">Перейти к системам</span></Link></center>
                         
                         
                     </div>

@@ -5,19 +5,25 @@ import cookie from 'js-cookie';
 import { getCookie, setCookie } from '../cookie';
 import Cookies from 'js-cookie';
 
-const URL1 = url_static + 'api/user/register/'
+const URL1 = url_static + 'api/user/'
 const URL2 = url_static + 'api/user/login/'
+axios.defaults.xsrfHeaderName = "X-CSRFToken";
 
 
-
-export const registration = async (username,password) => {
+export const registration = async (username,password1,password2) => {
     try {
-        const response = await axios.post(URL1, {
-            username,
-            password
+        const response = await axios(URL1, {
+            method:'post',
+            data: {
+                username,
+                password1,
+                password2 
+            },
+            withCredentials:true,  
         })
         alert(response.data.message)
     } catch(e) {
+        console.log(e.response)
         alert(e)
     }
 }
@@ -42,7 +48,8 @@ export const login = (username,password) => {
             console.log(token)
             
         } catch(e) {
-            alert(e)
+            alert(e.response.data)
+            console.log(e.response.data)
         }
     }
     

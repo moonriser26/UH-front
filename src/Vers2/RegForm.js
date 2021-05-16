@@ -7,7 +7,8 @@ function RegForm() {
 
     //Данные для пост запроса 
     const [email,setEmail] = useState('')
-    const [password,setPassword] = useState('')
+    const [password1,setPassword1] = useState('')
+    const [password2,setPassword2] = useState('')
 
     function handleSubmit (e) {
         e.preventDefault()
@@ -31,16 +32,25 @@ function RegForm() {
                 </div>
                 <div className='input-form'>
                     <input 
-                        id='password'
+                        id='password1'
                         type='password' 
-                        value={password}
+                        value={password1}
                         placeholder='Введите пароль'
-                        onChange={(event) => setPassword(event.target.value)}
+                        onChange={(event) => setPassword1(event.target.value)}
+                    />
+                </div>
+                <div className='input-form'>
+                    <input 
+                        id='password2'
+                        type='password' 
+                        value={password2}
+                        placeholder='Введите пароль'
+                        onChange={(event) => setPassword2(event.target.value)}
                     />
                 </div>
                
                 <div className='input-form'>
-                    <input type='submit' value='Регистрация' onClick ={() => registration(email,password)}/>
+                    <input type='submit' value='Регистрация' onClick ={() => registration(email,password1,password2)}/>
                 </div>
             </form>
         </div>

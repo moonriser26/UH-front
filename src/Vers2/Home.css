@@ -73,6 +73,16 @@
     flex-grow: 0;
     flex-shrink: 0;
   }
+  .main__button{
+    text-align: center;
+    text-decoration: none;
+    width: 200px;
+    height: 38px;
+    color: white;
+    border: 2px solid white;
+    border-radius: 20px;
+    padding: 8px 10px;
+    }
 
   /*Адаптив*/
   @media screen and (min-width:320px) {
@@ -103,25 +113,6 @@
       width: 50%;
       display: block;
     }
-    .main__button{
-      display: block;
-      text-align: center;
-      text-decoration: none;
-      width: 200px;
-      height: 38px;
-      color: white;
-      background-color: #1c1c1c;
-      border: 2px solid #1c1c1c;
-      border-radius: 20px;
-      padding: 7px;
-      margin-left: 38.2%;
-      }
-      
-      .main__button:hover{
-      background-color: #292929;
-      border: 2px solid white;
-      transition: 200ms;
-      }
   }
   @media screen and (min-width:768) {
     .main__text-block {

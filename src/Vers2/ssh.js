@@ -50,6 +50,7 @@ function SSH(props) {
         var key=e.keyCode || e.which;
          if (key === 13) {
             document.getElementById('button_send').click()
+            document.getElementById("ssh_command").value = ""
          }
        }
 
@@ -60,7 +61,7 @@ function SSH(props) {
                 <input type="text" placeholder='Ваш запрос (например: "uname -a")' id="ssh_command" onKeyPress={e => handleKeyPress(e)}/>
             </div>
             <div><input className='ssh-btn' type="submit" value="Отправить" id="button_send" /></div>          
-            <div id="subscribe" className='ssh_mess'>Messages:</div>
+            <div id="subscribe" className='ssh_mess'></div>
         </div>
     );
 }
