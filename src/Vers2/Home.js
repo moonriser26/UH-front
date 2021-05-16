@@ -21,7 +21,7 @@ function Home() {
                         <Link className="nav__link nav__link--active" to="/">Главная страница</Link>
                         <Link className="nav__link" to="/os">Операционные системы</Link>
                         <Link to='/commands' className="nav__link">Справочник</Link>
-                        {!isAuth && <Link className="nav__link nav__link--bordered" to="/auth/login">Войти</Link>}
+                        {isAuth && <Link className="nav__link nav__link--bordered" to="/auth/login">Войти</Link>}
                         {isAuth && <div className='nav__link' onClick={() =>dispatch(logout())}>Выйти</div>}
                     </Route>
                     </div>

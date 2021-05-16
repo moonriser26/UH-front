@@ -15,7 +15,7 @@ function Commands() {
                             <Link className="nav__link" to="/">Главная страница</Link>
                             <Link className="nav__link" to="/os">Операционные системы</Link>
                             <Link to='/commands' className="nav__link nav__link--active">Справочник</Link>
-                            {!isAuth && <Link className="nav__link nav__link--bordered" to="/auth/login">Войти</Link>}
+                            {isAuth && <Link className="nav__link nav__link--bordered" to="/auth/login">Войти</Link>}
                                 
                         </Route>
                     </div>
