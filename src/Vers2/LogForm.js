@@ -1,57 +1,24 @@
 import React, { useEffect, useState } from 'react'
-//import axios from 'axios'
+import axios from 'axios'
 import '../index.css'
-import initAxios from 'axios';
-import { getCookie } from './cookie';
-import {Link} from 'react-router-dom'
-
-const axios = initAxios.create({
-    baseURL: 'api.unix-history.org:4578/',
-});
-
-/*const setToken = () => {
-    const token = getCookie('token');
-    if (token) {
-      axios.defaults.headers.common.Authorization = `token ${token}`;
-    }
-};*/
-
-
-
-    // auth
-    function register(data) {
-      return axios.post('api/user/register/', data);
-    }
-
-    function login(data) {
-        return axios.post('api/user/login/', data);
-      }
-
+import {Link, Redirect} from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { login } from './actions.js/user'
+import {useSelector} from 'react-redux'
 
 //Окно авторизации
 export default function LogForm () {
-  
+    const isAuth = useSelector(state => state.user.isAuth)
+
     //То что вводит пользователь в поля email и password
     const [email,setEmail] = useState('')
     const [pass,setPass] = useState('')
-
-    //Данные для post запроса на бек
+    const dispatch = useDispatch()
+    
     function handleSubmit (e) {
         e.preventDefault()
-
-        const data = {
-            login: email,
-            password: pass,
-        }
-
-        /*axios.post('http://api.unix-history.org:4578/api/user/login/',data)
-            .then(res => console.log(res))
-            .catch(err => console.log(err))*/
-
-            //Пост запрос на сервер для авторизации
-            axios.post('api/user/login/', data, {withCredentials: true})
-            .then(res => console.log(res.data))
     }
+   
 
 
     
@@ -80,8 +47,8 @@ export default function LogForm () {
 
                 </div>
                 <div className='input-form'>
-                    <input type='submit' value='Войти'  />
-                    <Link to='/auth/registration'>Регистрация</Link>
+                    <input type='submit' value='Войти' onClick={() => dispatch(login(email,pass))} />
+                    <Link to='/auth/registration'><p className='reg-input' >Регистрация</p></Link>
                 </div>
             </form>
         </div>

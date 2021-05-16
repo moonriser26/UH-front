@@ -6,25 +6,29 @@
     display: flex;
     width: 100%;
     background-color: #1c1c1c;
+    position: absolute;
     padding: 20px 0;
   }
   
   .header__nav {
     margin-left: auto;
+    
   }
   
   .nav__link {
-    text-decoration: none;
+    
     color: #fff;
     font-size: 21px;
     font-family: Montserrat, sans-serif;
     letter-spacing: 2px;
     margin-right: 50px;
-    display: inline-block;
+    display:inline;
+    cursor: pointer;
+    text-decoration: none;
   }
   
   .nav__link--active {
-    text-decoration: underline !important;
+    text-decoration: underline;
   }
   
   .main {
@@ -36,6 +40,11 @@
     justify-content: center;
     align-items: center;
     column-gap: 110px;
+    width: 100vw;
+    height: 100vh;
+  }
+  .main_link {
+    text-decoration: none;
   }
   
   .main__heading {
@@ -71,9 +80,24 @@
     flex-grow: 0;
     flex-shrink: 0;
   }
+  .main__button{
+    text-align: center;
+    text-decoration: none;
+    width: 200px;
+    height: 38px;
+    color: white;
+    border: 2px solid white;
+    border-radius: 20px;
+    padding: 8px 10px;
+  }
+
 
   /*Адаптив*/
   @media screen and (min-width:320px) {
+    .main {
+      height: 100vh;
+    width: 100vw;
+    }
     .main__text-block {
       display: block;
       width: 100%;
@@ -160,5 +184,19 @@
     .main__img {
       width: 900px;
       height: 900px;
+    }
+    .main__button {
+      font-size: 25px;
+    }
+  }
+  @media screen and (min-width:2400px) {
+    .main__button {
+      font-size: 30px;
+    }
+  }
+     
+    @media screen and (min-width:2800px) {
+    .main__button {
+      font-size: 35px;
     }
   }

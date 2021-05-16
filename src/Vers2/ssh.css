@@ -1,15 +1,37 @@
+.ssh-window {
+   margin: 5%;
+   text-align: center;
+}
 .ssh_mess {
     background-color: white;
     color:black;
     border: white;
     overflow:auto;
-    max-width: 400px;
-    max-height: 70px;
-   font-size: 20px;
+    max-width: 80%;
+    max-height: 30vh;
+    margin-left: 10%;
+    margin-right: 10%;
+   font-size: 22px;
+   text-align: left;
+    white-space: pre-wrap;
 }
-
+.ssh-btn {
+    font-size: 30px;
+    margin-bottom: 3%;
+}
 .ssh-btn:hover {
     background-color: white;
     color: black;
     transition: 0.3s;
+}
+
+@media screen and (min-width:1200px) {
+    .ssh_mess {
+        font-size: 30px;
+    }
+}
+@media screen and (min-width:2000px) {
+    .ssh_mess {
+        font-size: 35px;
+    }
 }

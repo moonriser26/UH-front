@@ -1,53 +1,56 @@
 import React, { useEffect, useState } from 'react'
 import '../index.css'
+import { registration } from './actions.js/user'
 
 //Окно регистрации
 function RegForm() {
 
     //Данные для пост запроса 
-    const[form_reg,setForm_reg] = useState({
-        email:'', 
-        password: '',
-        repeat_password:''
-    })
+    const [email,setEmail] = useState('')
+    const [password1,setPassword1] = useState('')
+    const [password2,setPassword2] = useState('')
 
-    /*useEffect(() => {
-        console.log('Form change, email: ', form_reg.email,', password: ',form_reg.password,', repeat: ',form_reg.repeat_password)
-    },[form_reg])*/
-
+    function handleSubmit (e) {
+        e.preventDefault()
+    }
 
     return (
         <div className='block-register'>
             
-            <form className='login-form-open'>
+            <form className='login-form-open' onSubmit={e => handleSubmit(e)}>
                 <h1>Регистрация</h1>
                 <div className='input-form'>
                     <input 
                         id='email'
-                        type='text' 
+                        type='text'
+                        value={email}
                         placeholder='Введите Email'
-                        onChange={(event) => setForm_reg({ ...form_reg, email: event.target.value })}
+                        onChange={(event) => setEmail(event.target.value)}
+                        
                     />
 
                 </div>
                 <div className='input-form'>
                     <input 
-                        id='password'
+                        id='password1'
                         type='password' 
+                        value={password1}
                         placeholder='Введите пароль'
-                        onChange={(event) => setForm_reg({ ...form_reg, password: event.target.value })}
+                        onChange={(event) => setPassword1(event.target.value)}
                     />
                 </div>
                 <div className='input-form'>
                     <input 
-                        id='repeat password'
+                        id='password2'
                         type='password' 
+                        value={password2}
                         placeholder='Повторите пароль'
-                        onChange={(event) => setForm_reg({ ...form_reg, repeat_password: event.target.value })}
+                        onChange={(event) => setPassword2(event.target.value)}
                     />
                 </div>
+               
                 <div className='input-form'>
-                    <input type='submit' value='Зарегистрироваться' />
+                    <input type='submit' value='Регистрация' onClick ={() => registration(email,password1,password2)}/>
                 </div>
             </form>
         </div>

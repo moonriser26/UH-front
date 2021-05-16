@@ -8,6 +8,7 @@ import { useState } from 'react'
 import Modal from './Modal'
 import {url_static} from '../settings'
 import {is_autorizated} from '../utils'
+import { useSelector } from 'react-redux';
 
 
 
@@ -16,15 +17,21 @@ import {is_autorizated} from '../utils'
 //Страница с ОС
 
 function OS() {
+    const isAuth = useSelector(state => state.user.isAuth)
 
-    const URL = url_static + '/api/os/list/'
+    const URL = url_static + 'api/os/list/'
 
     const [modalActive,setModalActive] = useState(false)
     const [sshActive,setSshActive] = useState(false)
     const [osName,setOsName] = useState('UNIX')
     const [id_os,setId_os] = useState('1')
-    const [text, setText] = useState('')
+    const [text, setText] = useState(null)
     const [ssh_enable,setSsh_enable] = useState(false)
+    const [photo, setPhoto] = useState(null)
+    const [vendor,setVendor] = useState('')
+    const [version,setVersion] = useState('')
+    //const [dev_date,setDev_date] = useState('')
+    
    
     const [os_data,setOs_data] = useState([])
     const [res_act,setRes_act] = useState(true)
@@ -44,7 +51,9 @@ function OS() {
         setOsName(os_data[num]['name'])
         setId_os(os_data[num]['id'])
         setText(os_data[num]['html_text'])
-        setSsh_enable(os_data[num]['ssh_enable'])        
+        setSsh_enable(os_data[num]['ssh_enable'])
+        setPhoto(os_data[num]['photos']['path'])
+        
     }
     
     function os_click(num) {
@@ -53,8 +62,10 @@ function OS() {
         setId_os(os_data[num]['id'])
         setText(os_data[num]['html_text'])
         setSsh_enable(os_data[num]['ssh_enable'])
-        
-            
+        setPhoto(os_data[num]['photos']['path'])
+        setVendor(os_data[num]['vendor'])
+        setVersion(os_data[num]['version'])
+        //setDev_date(os_data[num][''])
     }
     //Отображение списка всех ОС
     const ListOs = []
@@ -65,15 +76,14 @@ function OS() {
             ListOs.push(
                 <div className='os' key={i} onClick={() => os_click(i)}>
                     <p>{os_data[i]['name']}</p>
-                    <img src={screen} alt='screen'></img>
+                    <img src={os_data[i]['photos']['path']} alt='screen'></img>
                     <br/>
                     {
-                        ssh_enable && is_autorizated() ?
-                        <button onClick={() => clickHandler(i)}>SSH</button>
-                        : <button disabled>SSH</button>
+                        os_data[i]['ssh_enable'] && is_autorizated() ?
+                            <button onClick={() => clickHandler(i)}>Попробовать</button>
+                            : <button style={{visibility: 'hidden'}}>Попробовать</button>
                     }
-                                                
-                </div> 
+                </div>
             )
         }
     }
@@ -86,9 +96,9 @@ function OS() {
                 <div className="header__nav nav">
                     <Route>
                         <Link className="nav__link" to="/">Главная страница</Link>
-                        {/*<Link className="nav__link" to="/history">История</Link>*/}
                         <Link className="nav__link nav__link--active" to="/os">Операционные системы</Link>
-                        <Link className="nav__link nav__link--bordered" to="/auth/login">Войти</Link>
+                        <Link to='/commands' className="nav__link">Справочник</Link>
+                        {isAuth && <Link className="nav__link nav__link--bordered" to="/auth/login">Войти</Link>}
                     </Route>
                 </div>
             </div>
@@ -100,11 +110,18 @@ function OS() {
                         {!sshActive ?
                         <div className='ccc'>
                             <h2>{osName}</h2>                                                   
-                            <div className='cont'><img className='os_wind' src={window} alt='window'></img>{text}</div>
+                            <div className='cont'>
+                                <img className='os_wind' src={photo} alt='window'></img>
+                                <div className="os_textBox">
+                                    <h4>Разработчик: {vendor}</h4>
+                                    <h4>Актуальная версия: {version}</h4>
+                                </div>
+                                <div className='os_text'>{text}</div>
+                            </div>
                             <br/>
                             {
                                 ssh_enable && is_autorizated() ?
-                                <button onClick={() => setSshActive(true)}>Подключиться по SSH</button>
+                                <button className='button_start' onClick={() => setSshActive(true)}>Попробовать</button>
                                 :
                                 <div></div>
                             }
@@ -119,8 +136,8 @@ function OS() {
                                 <div>
                                     <h2>{osName}</h2>                                                   
                                     <div className='ssh_content'>
-                                        <img className='ssh_wind' src={window} alt='window'></img>
-                                        <SSH id={id_os}/>
+                                        
+                                        <SSH id={id_os} active={modalActive}/>
                                     </div>                                                                      
                                 </div>                             
                             }
