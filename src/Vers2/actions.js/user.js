@@ -11,6 +11,11 @@ axios.defaults.xsrfHeaderName = "X-CSRFToken";
 
 
 export const registration = async (username,password1,password2) => {
+    /*const data = JSON.stringify({
+        username,
+        password1,
+        password2 
+    })*/
     try {
         const response = await axios(URL1, {
             method:'post',
@@ -19,9 +24,11 @@ export const registration = async (username,password1,password2) => {
                 password1,
                 password2 
             },
-            withCredentials:true,  
+            withCredentials:true,
+            headers:{"Content-Type" : "application/json"}  
         })
-        alert(response.data.message)
+       // const response = await axios.post(URL1, data)
+        alert('OK')
     } catch(e) {
         console.log(e.response)
         alert(e)

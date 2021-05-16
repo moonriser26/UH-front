@@ -28,6 +28,9 @@ function OS() {
     const [text, setText] = useState(null)
     const [ssh_enable,setSsh_enable] = useState(false)
     const [photo, setPhoto] = useState(null)
+    const [vendor,setVendor] = useState('')
+    const [version,setVersion] = useState('')
+    //const [dev_date,setDev_date] = useState('')
     
    
     const [os_data,setOs_data] = useState([])
@@ -60,6 +63,9 @@ function OS() {
         setText(os_data[num]['html_text'])
         setSsh_enable(os_data[num]['ssh_enable'])
         setPhoto(os_data[num]['photos']['path'])
+        setVendor(os_data[num]['vendor'])
+        setVersion(os_data[num]['version'])
+        //setDev_date(os_data[num][''])
     }
     //Отображение списка всех ОС
     const ListOs = []
@@ -106,6 +112,9 @@ function OS() {
                             <h2>{osName}</h2>                                                   
                             <div className='cont'>
                                 <img className='os_wind' src={photo} alt='window'></img>
+                                <h4>Дата разработки:</h4>
+                                <h4>Разработчик: {vendor}</h4>
+                                <h4>Актуальная версия: {version}</h4>
                                 <div className='os_text'>{text}</div>
                             </div>
                             <br/>
