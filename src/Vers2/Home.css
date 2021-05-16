@@ -23,6 +23,7 @@
     margin-right: 50px;
     display:inline;
     cursor: pointer;
+    
   }
   
   .nav__link--active {
@@ -172,5 +173,19 @@
     .main__img {
       width: 900px;
       height: 900px;
+    }
+    .main__button {
+      font-size: 25px;
+    }
+  }
+  @media screen and (min-width:2400px) {
+    .main__button {
+      font-size: 30px;
+    }
+  }
+     
+    @media screen and (min-width:2800px) {
+    .main__button {
+      font-size: 35px;
     }
   }
