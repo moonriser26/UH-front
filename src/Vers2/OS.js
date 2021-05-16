@@ -76,7 +76,7 @@ function OS() {
             ListOs.push(
                 <div className='os' key={i} onClick={() => os_click(i)}>
                     <p>{os_data[i]['name']}</p>
-                    <img src={screen} alt='screen'></img>
+                    <img src={os_data[i]['photos']['path']} alt='screen'></img>
                     <br/>
                     {
                         os_data[i]['ssh_enable'] && is_autorizated() ?
