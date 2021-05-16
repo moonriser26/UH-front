@@ -7,7 +7,7 @@
     width: 100%;
     background-color: #1c1c1c;
     padding: 27px 0;
-   
+    z-index: 1;
 }
   
 .header__nav {
@@ -54,7 +54,8 @@
     box-shadow: 0 0 40px black;
     border: #ffffff48 solid 1px;
     margin-right: 2%;
-    transition: 0.3s ease
+    transition: 0.3s ease;
+    width: 20%;
 }
     
 .os:hover {
@@ -80,11 +81,8 @@
     border: 1px solid #ffffff7c;
     font-size: 18px;
     transition: 0.3s ease;
-    }
-    .os button:hover {
-    background-color: white;
-    color: black;
 }
+
 .os button:hover {
     background-color: white;
     color: black;
@@ -105,7 +103,7 @@
 .os_modal h2{
     text-align: center;
     color:#fff;
-    font-size: 30px;
+    font-size: 40px;
 }
 .os_wind {
     
@@ -158,12 +156,17 @@
     padding-top: 100px;
 } 
 
+.os_textBox{
+    height: 230px;
+    text-align: center;
+}
+
 @media screen and (min-width:1800px) {
     .os {
         width: 20%;      
     }
     .os button {
-        font-size: 30px;
+        font-size: 20px;
     }
 }
 
@@ -172,7 +175,14 @@
         width: 30%;
     }
     .os button {
-        font-size: 35px;
+        font-size: 25px;
+    }
+    
+}
+
+@media screen and (min-width:2600px) {
+    .os button {
+        font-size: 40px;
     }
 }
 

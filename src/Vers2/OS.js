@@ -96,8 +96,8 @@ function OS() {
                 <div className="header__nav nav">
                     <Route>
                         <Link className="nav__link" to="/">Главная страница</Link>
-                        {/*<Link className="nav__link" to="/history">История</Link>*/}
                         <Link className="nav__link nav__link--active" to="/os">Операционные системы</Link>
+                        <Link to='/commands'><p className="nav__link ">Справочник</p></Link>
                         {!isAuth && <Link className="nav__link nav__link--bordered" to="/auth/login">Войти</Link>}
                     </Route>
                 </div>
@@ -112,9 +112,10 @@ function OS() {
                             <h2>{osName}</h2>                                                   
                             <div className='cont'>
                                 <img className='os_wind' src={photo} alt='window'></img>
-                                <h4>Дата разработки:</h4>
-                                <h4>Разработчик: {vendor}</h4>
-                                <h4>Актуальная версия: {version}</h4>
+                                <div className="os_textBox">
+                                    <h4>Разработчик: {vendor}</h4>
+                                    <h4>Актуальная версия: {version}</h4>
+                                </div>
                                 <div className='os_text'>{text}</div>
                             </div>
                             <br/>

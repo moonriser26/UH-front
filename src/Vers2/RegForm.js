@@ -44,7 +44,7 @@ function RegForm() {
                         id='password2'
                         type='password' 
                         value={password2}
-                        placeholder='Введите пароль'
+                        placeholder='Повторите пароль'
                         onChange={(event) => setPassword2(event.target.value)}
                     />
                 </div>

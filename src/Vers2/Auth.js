@@ -14,16 +14,17 @@ function Auth() {
     return(
         //Навигация сайта
         <div>
-            {isAuth ?
+            {/*isAuth ?
                 <Redirect to='/'/>
                 :null
-            }
+            */}
         <div className="header">
                 <div className="header__nav nav">
                 <Route>
                     <Link className="nav__link" to="/">Главная страница</Link>
                     {/*<Link className="nav__link" to="/history">История</Link>*/}
                     <Link className="nav__link " to="/os">Операционные системы</Link>
+                    <Link to='/commands'><p className="nav__link ">Справочник</p></Link>
                     { <Link className="nav__link nav__link--active" to="/auth/login">Войти</Link>}
                     {isAuth && <Redirect to='/'/>}
                 </Route>

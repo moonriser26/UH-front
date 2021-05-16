@@ -24,7 +24,7 @@ export const registration = async (username,password1,password2) => {
                 password1,
                 password2 
             },
-            withCredentials:true,
+            withCredentials: true,
             headers:{"Content-Type" : "application/json"}  
         })
        // const response = await axios.post(URL1, data)
@@ -46,17 +46,18 @@ export const login = (username,password) => {
                 },
                 withCredentials:true,
                 
+                
             })
             const token = response.data.key;
             dispatch(setToken(token))
             
             setCookie('token',token)          
             
-            console.log(token)
+            console.log(response.headers)
             
         } catch(e) {
-            alert(e.response.data)
-            console.log(e.response.data)
+            alert(e.response)
+            console.log(e.response)
         }
     }
     

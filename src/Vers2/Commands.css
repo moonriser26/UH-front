@@ -1,3 +1,50 @@
-.commands_window {
+.header {
+    display: flex;
+    width: 100%;
+    background-color: #1c1c1c;
+    padding: 27px 0;
+    position: absolute;
+}
+  
+.header__nav {
+    margin-left: auto;
     
+}
+  
+.nav__link {
+    text-decoration: none;
+    color: #fff;
+    font-size: 21px;
+    font-family: Montserrat, sans-serif;
+    letter-spacing: 2px;
+    margin-right: 50px;
+}
+  
+.nav__link--active {
+    text-decoration: underline !important;
+}
+.commands_window {
+   color: white;
+   padding-top: 100px;
+}
+.commands_window h1 {
+    text-align: center;
+}
+.command_main {
+    height: 100vh;
+    width: 100vw;
+    background-color: #1c1c1c;
+    overflow-x: hidden;
+}
+.command_list {
+    font-size: 30px;
+    padding-left: 2%;
+    margin-bottom: 3%;
+    margin-top: 3%;
+}
+.command_list li {
+    margin-bottom: 10px;
+}
+.command_list q {
+    quotes: "\00ab" "\00bb";
 }
