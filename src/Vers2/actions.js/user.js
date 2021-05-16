@@ -38,7 +38,7 @@ export const login = (username,password) => {
             dispatch(setToken(token))
             
             setCookie('token',token)          
-
+            
             console.log(token)
             
         } catch(e) {

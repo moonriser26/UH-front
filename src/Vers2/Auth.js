@@ -11,13 +11,6 @@ import {Redirect} from 'react-router-dom'
 function Auth() {
     const isAuth = useSelector(state => state.user.isAuth)
 
-    useEffect( () => {
-        if(isAuth) {
-            <Redirect to='/'/>
-        }
-        
-    },[isAuth])
-
     return(
         //Навигация сайта
         <div>

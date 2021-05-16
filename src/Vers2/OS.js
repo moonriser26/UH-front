@@ -106,7 +106,7 @@ function OS() {
                             <h2>{osName}</h2>                                                   
                             <div className='cont'>
                                 <img className='os_wind' src={photo} alt='window'></img>
-                                <code>{text}</code>
+                                <div className='os_text'>{text}</div>
                             </div>
                             <br/>
                             {

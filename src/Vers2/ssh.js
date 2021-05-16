@@ -33,13 +33,13 @@ function SSH(props) {
         function showMessage(message) {
             let messageElem = document.createElement('div');
 
-            messageElem.innerHTML = message
-            var text = messageElem.textContent || messageElem.innerText || ""
-            console.log(messageElem.innerText || "")
+           /* messageElem.innerHTML = message
+            var text = messageElem.textContent || messageElem.innerText || ""*/
+           /* console.log(messageElem.innerText || "")
             console.log(messageElem.innerText)
             console.log( messageElem.textContent || "")
             console.log( messageElem.textContent)
-            console.log(messageElem[0])
+            console.log(messageElem)*/
             messageElem.appendChild(document.createTextNode(message));
             document.getElementById('subscribe').appendChild(messageElem);
             
@@ -52,12 +52,18 @@ function SSH(props) {
         
     }, 10);
 
+    function handleKeyPress(e){
+        var key=e.keyCode || e.which;
+         if (key === 13) {
+            document.getElementById('button_send').click()
+         }
+       }
 
     return (
         
         <div className='ssh-window'>          
             <div className='input-form message'>
-                <input type="text" placeholder='Ваш запрос (например: "uname -a")' id="ssh_command"/>
+                <input type="text" placeholder='Ваш запрос (например: "uname -a")' id="ssh_command" onKeyPress={e => handleKeyPress(e)}/>
             </div>
             <div><input className='ssh-btn' type="submit" value="Отправить" id="button_send" /></div>          
             <div id="subscribe" className='ssh_mess'>Messages:</div>
