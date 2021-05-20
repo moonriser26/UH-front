@@ -52,6 +52,7 @@ function SSH(props) {
             return window.ssh_active
         }
 
+        setInterval(isActive, 10); // Проверяем открытие раз в 10 секунд
         
     }, 10);
 
