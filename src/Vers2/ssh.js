@@ -13,34 +13,43 @@ function SSH(props) {
         // socket.onmessage = function (ev)
         // отправить сообщение из формы publish
         socket.onopen = function(e) {
-        document.getElementById("button_send").onclick = function () {
-            let outgoingMessage = document.getElementById("ssh_command").value + '\n';
-            
-            socket.send(outgoingMessage);
-            return false
-        };
+            document.getElementById("button_send").onclick = function () {
+                if (isActive()) {
+                    let outgoingMessage = document.getElementById("ssh_command").value + '\n';
+
+                    socket.send(outgoingMessage);
+                }
+                return false;
+            };
         }
 
 // обработчик входящих сообщений
         socket.onmessage = function (event) {
-            var incomingMessage = event.data;
-            console.log(incomingMessage);
-            showMessage(incomingMessage);
+            if (isActive()) {
+                var incomingMessage = event.data;
+                console.log(incomingMessage);
+                showMessage(incomingMessage);
+            }
             return false
         };
 
 // показать сообщение в div#subscribe
         function showMessage(message) {
-            let messageElem = document.createElement('div');
-            messageElem.innerHTML = message
-            //console.log(message)
-           // messageElem.appendChild(document.createTextNode(message));
-            document.getElementById('subscribe').appendChild(messageElem)
-            document.getElementById('subscribe').lastChild.scrollIntoView(false)
+            if (isActive()) {
+                let messageElem = document.createElement('div');
+                messageElem.innerHTML = message
+                //console.log(message)
+                // messageElem.appendChild(document.createTextNode(message));
+                document.getElementById('subscribe').appendChild(messageElem)
+                document.getElementById('subscribe').lastChild.scrollIntoView(false)
+            }
         }
 
-        if (!props.active) {
-            socket.close()
+        function isActive() {
+            if (!window.ssh_active) {
+                socket.close(3001)
+            }
+            return window.ssh_active
         }
 
         

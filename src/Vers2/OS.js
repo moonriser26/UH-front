@@ -1,7 +1,6 @@
 import React from 'react'
 import './OS.css'
 import screen from '../images/screen.png'
-import window from '../images/window.png'
 import SSH from './ssh'
 import {Link,Route} from 'react-router-dom'
 import { useState } from 'react'
@@ -48,12 +47,19 @@ function OS() {
     function clickHandler(num) {
         setModalActive(true)
         setSshActive(true)
+        window.ssh_active = true
         setOsName(os_data[num]['name'])
         setId_os(os_data[num]['id'])
         setText(os_data[num]['html_text'])
         setSsh_enable(os_data[num]['ssh_enable'])
         setPhoto(os_data[num]['photos']['path'])
         
+    }
+
+    function disable_ssh() {
+        setSshActive(false);
+        window.ssh_active = false
+
     }
     
     function os_click(num) {
@@ -131,13 +137,13 @@ function OS() {
                         <div>
                             {
                                 !modalActive ?
-                                setSshActive(false)
+                                disable_ssh()
                                 :
                                 <div>
                                     <h2>{osName}</h2>                                                   
                                     <div className='ssh_content'>
                                         
-                                        <SSH id={id_os} active={modalActive}/>
+                                        <SSH id={id_os} active={modalActive} sshActive={sshActive}/>
                                     </div>                                                                      
                                 </div>                             
                             }
