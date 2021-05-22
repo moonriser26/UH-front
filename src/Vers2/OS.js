@@ -127,7 +127,7 @@ function OS() {
                             <br/>
                             {
                                 ssh_enable && is_autorizated() ?
-                                <button className='button_start' onClick={() => setSshActive(true)}>Попробовать</button>
+                                <button style={{visibility: 'hidden'}} className='button_start' onClick={() => setSshActive(true)}>Попробовать</button>
                                 :
                                 <div></div>
                             }
