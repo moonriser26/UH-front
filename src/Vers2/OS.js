@@ -1,6 +1,5 @@
 import React from 'react'
 import './OS.css'
-import screen from '../images/screen.png'
 import SSH from './ssh'
 import {Link,Route} from 'react-router-dom'
 import { useState } from 'react'
@@ -59,6 +58,12 @@ function OS() {
     function disable_ssh() {
         setSshActive(false);
         window.ssh_active = false
+
+    }
+
+    function enable_ssh() {
+        setSshActive(true);
+        window.ssh_active = true
 
     }
     
@@ -127,7 +132,7 @@ function OS() {
                             <br/>
                             {
                                 ssh_enable && is_autorizated() ?
-                                <button style={{visibility: 'hidden'}} className='button_start' onClick={() => setSshActive(true)}>Попробовать</button>
+                                <button className='button_start' onClick={() => enable_ssh()}>Попробовать</button>
                                 :
                                 <div></div>
                             }
